@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
     <button (click)="increaseBy(+1)">+1</button>
     <button (click)="resetCounter()">Reset</button>
     <button (click)="increaseBy(-1)">-1</button>
-
+    <button (click)="multiplyBy(5)">Multiply</button>
   `
 })
 export class CounterComponent  {
@@ -19,6 +19,10 @@ export class CounterComponent  {
   }
 
   resetCounter() {
-    this.counter = 10;
+    this.counter = 0;
+  }
+
+  multiplyBy( value: number ):void {
+    this.counter *= value;
   }
 }

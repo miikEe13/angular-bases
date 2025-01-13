@@ -1,0 +1,17 @@
+<hr>
+<h2>{{title}}!</h2>
+<div>
+  <input type="text" class="form-control"   (keyup.enter)="addPower($event)" placeholder="New Power">
+</div>
+<ul *ngIf="powers.length > 0; else warningNoPower" class="list-group mt-4">
+  <li *ngFor="let power of powers; let i = index" class="list-group-item d-flex justify-content-between">
+    {{power}}
+    <button class="btn btn-danger" (click)="removePower(i)">Remove</button>
+  </li>
+</ul>
+<ng-template #warningNoPower>
+  <div class="alert alert-warning mt-4" role="alert">
+    No hay poderes pff!
+  </div>
+</ng-template>
+<hr>

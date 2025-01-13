@@ -1,9 +1,12 @@
 <h1> {{ title }} </h1>
+<h2>{{subtitle}}</h2>
 <hr>
-
 
 <app-counter></app-counter>
 
 <app-heroes-hero></app-heroes-hero>
+
+<button (click)="toggleComponent()" class="btn btn-primary">Toogle powers</button>
+<app-heroes-power *ngIf="showComponent"></app-heroes-power>
 
 <app-heroes-list></app-heroes-list>
