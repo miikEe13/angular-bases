@@ -8,7 +8,9 @@ import { DbzService } from '../services/dbz.service';
 })
 export class MainPageComponent  {
 
+  public selectedCharacter?: Character; // Personaje seleccionado
   constructor( private dbzService: DbzService ) {}
+
 
   get characters(): Character[] {
     return [...this.dbzService.characters];
@@ -22,4 +24,13 @@ export class MainPageComponent  {
     this.dbzService.addCharacter( character );
   }
 
+  // Método para manejar la selección de un personaje por ID
+  onSelectCharacter(id: string): void {
+    const character = this.dbzService.getCharacterById(id);
+    if (character) {
+      this.selectedCharacter = character;
+    } else {
+      console.warn(`No se encontró el personaje con ID: ${id}`);
+    }
+  }
 }

@@ -1,0 +1,28 @@
+<div *ngIf="selectedCharacter; else noCharacter">
+  <div>
+    <h2>Habilidades de {{ selectedCharacter.name }}</h2>
+    <p><strong>Poder de pega:</strong> {{ totalPower }}</p>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let hab of selectedCharacter.habilidades">
+        {{ hab.name }} | type: {{ hab.type }} | Damage: {{ hab.damage }}
+      </li>
+    </ul>
+  </div>
+</div>
+<hr>
+<form (ngSubmit)="agregarHabilidad()">
+  <input class="form-control mb-2" type="text" placeholder="Nombre de la habilidad" [(ngModel)]="nuevaHabilidad.name"
+    name="nombre" required>
+  <input class="form-control mb-2" type="text" placeholder="typ de la habilidad" [(ngModel)]="nuevaHabilidad.type"
+    name="type" required>
+  <input class="form-control mb-2" type="number" placeholder="Damage" [(ngModel)]="nuevaHabilidad.damage" name="damage"
+    required>
+  <button type="submit" class="btn btn-primary">Agregar Habilidad</button>
+</form>
+
+<hr>
+<ng-template #noCharacter>
+  <div class="warning">
+    <p>No hay ningún personaje seleccionado</p>
+  </div>
+</ng-template>

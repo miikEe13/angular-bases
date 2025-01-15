@@ -6,13 +6,16 @@
 
     <!-- onDelete -->
     <dbz-list [characterList]="characters"
+              [selectedCharacter]="selectedCharacter"
+              (onSelect)="onSelectCharacter($event)"
               (onDelete)="onDeleteCharacter($event)"></dbz-list>
   </div>
-
   <div class="col">
     <!-- add-character -->
     <dbz-add-character (onNewCharacter)="onNewCharacter($event)" ></dbz-add-character>
 
-
+  </div>
+  <div class="col-100 mt-4">
+    <dbz-habilidades [selectedCharacter]="selectedCharacter"></dbz-habilidades>
   </div>
 </div>
